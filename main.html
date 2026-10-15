@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💖 Happy Birthday, My Pinky 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <canvas id="canvas"></canvas>
+  <div id="floatContainer" class="float-container"></div>
+
+  <!-- ════════════════════════════════
+       HERO — BIRTHDAY BLAST
+  ════════════════════════════════ -->
+  <section class="hero" id="home">
+    <!-- Blurred bg of image3 -->
+    <div class="hero-blur-bg" style="background-image:url('images/image\ 3.jpeg')"></div>
+    <div class="hero-dark-overlay"></div>
+
+    <!-- Balloons -->
+    <div class="balloons-row" aria-hidden="true">
+      <div class="balloon b1">🎈</div>
+      <div class="balloon b2">🎀</div>
+      <div class="balloon b3">🎈</div>
+      <div class="balloon b4">💖</div>
+      <div class="balloon b5">🎈</div>
+    </div>
+
+    <div class="hero-inner">
+      <!-- Main portrait: image3 -->
+      <div class="hero-portrait-wrap">
+        <div class="portrait-glow-ring"></div>
+        <div class="portrait-frame">
+          <img src="images/image 3.jpeg" alt="Birthday Girl" class="portrait-img" />
+        </div>
+        <div class="portrait-badge">🎂 Birthday Queen 👑</div>
+      </div>
+
+      <div class="hero-text-col">
+        <div class="top-tag">✨ Today Is All About You ✨</div>
+        <h1 class="hero-h1">
+          <span class="h1-wish">Happy Birthday!</span>
+          <span class="h1-name" id="dynamicName">My Pinky 🌸</span>
+        </h1>
+        <p class="hero-tagline">
+          Another year of sunshine, smiles and magic — and I get to be<br/>
+          the lucky one standing beside you 💕
+        </p>
+        <div class="years-pill">
+          <span class="yp-num">5.5</span>
+          <span class="yp-txt">beautiful years & counting ✨</span>
+        </div>
+        <div class="hero-cta-row">
+          <a href="#birthday" class="cta-btn primary">🎂 Birthday Moments</a>
+          <a href="#gallery" class="cta-btn secondary">📸 Our Gallery</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Scroll to celebrate</span>
+      <span class="arrow-down">↓</span>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       BIRTHDAY SPOTLIGHT SECTION
+  ════════════════════════════════ -->
+  <section class="birthday-section" id="birthday">
+    <div class="section-header">
+      <div class="sec-tag">🎂 The Star of the Day</div>
+      <h2 class="sec-title">Today is YOUR Day!</h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">Celebrating the most wonderful person in my world 💖</p>
+    </div>
+
+    <!-- Big birthday photo + stats grid -->
+    <div class="bday-spotlight">
+      <div class="bday-big-photo">
+        <div class="bday-photo-frame">
+          <img src="images/image5.jpeg" alt="Birthday Girl celebrating!" />
+          <div class="bday-sticker top-left">🎉</div>
+          <div class="bday-sticker top-right">🎈</div>
+          <div class="bday-sticker bottom-left">✨</div>
+          <div class="bday-sticker bottom-right">🎂</div>
+        </div>
+        <p class="bday-photo-caption">The Birthday Girl herself! 🎀</p>
+      </div>
+
+      <div class="bday-stats-col">
+        <div class="bday-stat-card">
+          <div class="bsc-icon">🎂</div>
+          <div class="bsc-val" id="bdayNum">1</div>
+          <div class="bsc-lbl">Special Day Celebrated</div>
+        </div>
+        <div class="bday-stat-card">
+          <div class="bsc-icon">📅</div>
+          <div class="bsc-val" id="daysCount">0</div>
+          <div class="bsc-lbl">Days We've Been Together</div>
+        </div>
+        <div class="bday-stat-card">
+          <div class="bsc-icon">💌</div>
+          <div class="bsc-val">∞</div>
+          <div class="bsc-lbl">Times I Think of You Daily</div>
+        </div>
+        <div class="bday-stat-card">
+          <div class="bsc-icon">⭐</div>
+          <div class="bsc-val">1</div>
+          <div class="bsc-lbl">Person Who Rules My Heart</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Birthday message card -->
+    <div class="bday-msg-card">
+      <div class="bday-msg-emoji">🎁</div>
+      <h3>To the Most Beautiful Soul I Know</h3>
+      <p>
+        Every year you get more amazing, more radiant, more YOU. Today the world celebrates 
+        the day you arrived in it — and trust me, the world is so much better because of you.
+        Here's to your special day, and here's to many more years of adventures, laughter, 
+        and love together. 
+      </p>
+      <div class="bday-msg-hearts">💖 &nbsp; 🌸 &nbsp; 🎂 &nbsp; 🌸 &nbsp; 💖</div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       THEN & NOW — CHILDHOOD PHOTO
+  ════════════════════════════════ -->
+  <section class="thennow-section" id="thennow">
+    <div class="section-header">
+      <div class="sec-tag">📸 Through the Years</div>
+      <h2 class="sec-title">Then & Now</h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">Look how far you've come — always beautiful, always glowing ✨</p>
+    </div>
+    <div class="thennow-grid">
+      <div class="tn-card">
+        <div class="tn-label">Then 👶</div>
+        <img src="images/Image1.jpeg" alt="Childhood photo" />
+        <p class="tn-caption">The cutest little one 🌸<br/><span>The same smile, always ❤️</span></p>
+      </div>
+      <div class="tn-vs">→<br/>→<br/>→</div>
+      <div class="tn-card main-card">
+        <div class="tn-label">Now 👸</div>
+        <img src="images/image 3.jpeg" alt="Now photo" />
+        <p class="tn-caption">Absolutely stunning 💖<br/><span>My forever favourite person</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       MEMORY GALLERY — ALL PHOTOS
+  ════════════════════════════════ -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <div class="sec-tag">📷 Captured Moments</div>
+      <h2 class="sec-title">Our Beautiful Memories</h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">Every photo a story, every moment a treasure 💕</p>
+    </div>
+
+    <!-- Masonry/polaroid gallery -->
+    <div class="gallery-grid">
+  <div class="gal-item feat" data-caption="Honesty shines bright 🌟">
+    <img src="images/image 3.jpeg" alt="Memory" />
+    <p class="gal-caption">Honesty shines bright 🌟</p>
+    <div class="gal-overlay"><span>Honesty shines bright 🌟</span></div>
+  </div>
+  <div class="gal-item" data-caption="Cuteness overload 🎉">
+    <img src="images/image5.jpeg" alt="Birthday celebration" />
+    <p class="gal-caption">Cuteness overload 🎉</p>
+    <div class="gal-overlay"><span>Cuteness overload 🎉</span></div>
+  </div>
+  <div class="gal-item" data-caption="Caring heart 💖">
+    <img src="images/Image2.jpeg" alt="Memory" />
+    <p class="gal-caption">Caring heart 💖</p>
+    <div class="gal-overlay"><span>Caring heart 💖</span></div>
+  </div>
+  <div class="gal-item" data-caption="Innocent smiles 😊">
+    <img src="images/image11.jpeg" alt="Memory" />
+    <p class="gal-caption">Innocent smiles 😊</p>
+    <div class="gal-overlay"><span>Innocent smiles 😊</span></div>
+  </div>
+  <div class="gal-item" data-caption="Childish fun 🎈">
+    <img src="images/image6.jpeg" alt="Memory" />
+    <p class="gal-caption">Childish fun 🎈</p>
+    <div class="gal-overlay"><span>Childish fun 🎈</span></div>
+  </div>
+  <div class="gal-item" data-caption="Supporting you always 🤝">
+    <img src="images/image7.jpeg" alt="Memory" />
+    <p class="gal-caption">Supporting you always 🤝</p>
+    <div class="gal-overlay"><span>Supporting you always 🤝</span></div>
+  </div>
+  <div class="gal-item" data-caption="Intelligent beauty 🧠">
+    <img src="images/image8.jpeg" alt="Memory" />
+    <p class="gal-caption">Intelligent beauty 🧠</p>
+    <div class="gal-overlay"><span>Intelligent beauty 🧠</span></div>
+  </div>
+  <div class="gal-item" data-caption="Likewise, forever 💞">
+    <img src="images/image9.jpeg" alt="Memory" />
+    <p class="gal-caption">Likewise, forever 💞</p>
+    <div class="gal-overlay"><span>Likewise, forever 💞</span></div>
+  </div>
+  <div class="gal-item" data-caption="Pure royalty 👸">
+    <img src="images/image10.jpeg" alt="Memory" />
+    <p class="gal-caption">Pure royalty 👸</p>
+    <div class="gal-overlay"><span>Pure royalty 👸</span></div>
+  </div>
+  <div class="gal-item" data-caption="Selfie queen 🤳">
+    <img src="images/image4.jpeg" alt="Memory" />
+    <p class="gal-caption">Selfie queen 🤳</p>
+    <div class="gal-overlay"><span>Selfie queen 🤳</span></div>
+  </div>
+</div>
+  </section>
+
+  <!-- ════════════════════════════════
+       LIGHTBOX
+  ════════════════════════════════ -->
+  <div class="lightbox" id="lightbox" onclick="closeLB()">
+    <div class="lb-close">✕</div>
+    <img id="lbImg" src="" alt="" />
+    <div class="lb-caption" id="lbCap"></div>
+  </div>
+
+  <!-- ════════════════════════════════
+       BIRTHDAY COUNTDOWN / CANDLES
+  ════════════════════════════════ -->
+  <section class="candle-section" id="wish">
+    <div class="section-header">
+      <div class="sec-tag">🕯️ Make a Wish</div>
+      <h2 class="sec-title">Blow Out the Candles!</h2>
+      <div class="sec-line"></div>
+      <p class="sec-sub">Close your eyes, make a wish, and let magic happen ✨</p>
+    </div>
+    <div class="candle-stage">
+      <div class="css-cake">
+        <div class="cake-tier t3">
+          <div class="tier-deco"></div>
+        </div>
+        <div class="cake-tier t2">
+          <div class="tier-deco"></div>
+        </div>
+        <div class="cake-tier t1">
+          <div class="tier-deco"></div>
+        </div>
+        <div class="candles-line" id="candlesLine"></div>
+      </div>
+      <button class="blow-candles-btn" id="blowBtn" onclick="blowAll()">
+        🌬️ &nbsp; Blow Out Candles!
+      </button>
+      <div class="wish-reveal" id="wishReveal">
+        <div class="wr-emoji">🎉✨🎊💖🎈</div>
+        <h3>Your wish is flying to the stars! ⭐</h3>
+        <p>May every dream your beautiful heart holds come true 💕</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       LOVE LETTER
+  ════════════════════════════════ -->
+  <section class="letter-section" id="letter">
+    <div class="section-header">
+      <div class="sec-tag">💌 From the Heart</div>
+      <h2 class="sec-title">A Letter Just for You</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="letter-card">
+      <div class="lc-stamp">💌</div>
+      <p class="lc-salute">My dearest Pinky,</p>
+      <p>
+        Happy Birthday, my love! 🎂 On this most special day, I want you to know just how
+        extraordinary you are — not just to me, but to everyone who has the privilege of knowing you.
+      </p>
+      <p>
+        5.5 years ago, you walked into my life and turned it into the greatest story ever written.
+        Every chapter with you has been more beautiful than the last. You are the reason I smile
+        without reason, the reason home feels like home, and the reason I believe in forever.
+      </p>
+      <p>
+        Today is your day — a celebration of the incredible woman you are. You deserve all the 
+        love, all the cake, all the happiness in the world. And I promise to spend every day
+        making sure you feel exactly that — loved, cherished, and adored. 
+      </p>
+      <p>
+        Happy Birthday, my Pinky. Here's to you, here's to us, here's to a lifetime more. 🌹
+      </p>
+      <p class="lc-sign">With all my heart, forever yours — <strong>Your Person 🌸</strong></p>
+      <div class="lc-hearts">💗 &nbsp; 💖 &nbsp; 💗 &nbsp; 💖 &nbsp; 💗</div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       WHY I LOVE YOU
+  ════════════════════════════════ -->
+  <section class="reasons-section" id="reasons">
+    <div class="section-header">
+      <div class="sec-tag">💕 Just Because</div>
+      <h2 class="sec-title">Why You're Everything</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-tile">
+        <div class="rt-num">01</div>
+        <div class="rt-icon">😄</div>
+        <h3>That Smile</h3>
+        <p>The way you smile lights up every room and fixes the worst of days.</p>
+      </div>
+      <div class="reason-tile">
+        <div class="rt-num">02</div>
+        <div class="rt-icon">👸</div>
+        <h3>Your Grace</h3>
+        <p>Everything you do, you do with such poise and elegance. Truly a queen.</p>
+      </div>
+      <div class="reason-tile">
+        <div class="rt-num">03</div>
+        <div class="rt-icon">💪</div>
+        <h3>Your Strength</h3>
+        <p>You handle everything life throws at you with courage. You inspire me daily.</p>
+      </div>
+      <div class="reason-tile">
+        <div class="rt-num">04</div>
+        <div class="rt-icon">🤣</div>
+        <h3>Your Laugh</h3>
+        <p>My favourite sound in the entire universe. I live to make you laugh.</p>
+      </div>
+      <div class="reason-tile">
+        <div class="rt-num">05</div>
+        <div class="rt-icon">💖</div>
+        <h3>Your Heart</h3>
+        <p>The kindness and love you give so freely to everyone is extraordinary.</p>
+      </div>
+      <div class="reason-tile">
+        <div class="rt-num">06</div>
+        <div class="rt-icon">🌟</div>
+        <h3>Just YOU</h3>
+        <p>Every quirk, every habit, every little imperfection — I love every bit of you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       FOOTER
+  ════════════════════════════════ -->
+  <footer class="footer" id="footer">
+    <div class="footer-img-strip">
+      <img src="images/image 3.jpeg" alt="" />
+      <img src="images/image5.jpeg" alt="" />
+      <img src="images/Image2.jpeg" alt="" />
+      <img src="images/image9.jpeg" alt="" />
+      <img src="images/image6.jpeg" alt="" />
+    </div>
+    <div class="footer-content">
+      <div class="footer-hearts">💖 🌸 💖 🌸 💖</div>
+      <h2 class="footer-title">Happy Birthday, My Pinky! 🎂</h2>
+      <p class="footer-msg">Made with every beat of my heart, just for you 💕</p>
+      <p class="footer-sub">5.5 years & forever more — Your Person 🌹</p>
+      <div class="footer-hearts">🌸 💕 🌸 💕 🌸</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

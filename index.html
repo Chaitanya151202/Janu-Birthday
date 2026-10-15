@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎂 Something Special Awaits You 🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: #0d0008;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── ANIMATED GRADIENT BG ── */
+    .bg-gradient {
+      position: fixed; inset: 0; z-index: 0;
+      background: linear-gradient(135deg, #0d0008, #2a0020, #5a0038, #2a0020, #0d0008);
+      background-size: 400% 400%;
+      animation: gradShift 8s ease infinite;
+    }
+    @keyframes gradShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ── ORBS ── */
+    .orb {
+      position: fixed; border-radius: 50%;
+      filter: blur(80px); pointer-events: none; z-index: 0;
+    }
+    .orb1 { width: 500px; height: 500px; background: rgba(255,20,147,0.18); top: -150px; left: -150px; animation: orbDrift1 12s ease-in-out infinite; }
+    .orb2 { width: 400px; height: 400px; background: rgba(199,21,133,0.15); bottom: -120px; right: -120px; animation: orbDrift2 10s ease-in-out infinite; }
+    .orb3 { width: 300px; height: 300px; background: rgba(255,105,180,0.12); top: 50%; left: 50%; transform: translate(-50%,-50%); animation: orbDrift3 14s ease-in-out infinite; }
+    @keyframes orbDrift1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(60px, 40px); } }
+    @keyframes orbDrift2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-50px, -30px); } }
+    @keyframes orbDrift3 { 0%,100% { transform: translate(-50%,-50%) scale(1); } 50% { transform: translate(-50%,-50%) scale(1.3); } }
+
+    /* ── PARTICLES ── */
+    canvas.particles { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+
+    /* ── FLOATING EMOJIS ── */
+    .floaters { position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+    .fem {
+      position: absolute; bottom: -60px;
+      animation: femRise linear infinite;
+    }
+    @keyframes femRise {
+      0%   { transform: translateY(0) rotate(-10deg); opacity: 0; }
+      6%   { opacity: 1; }
+      94%  { opacity: 0.7; }
+      100% { transform: translateY(-110vh) rotate(10deg); opacity: 0; }
+    }
+
+    /* ── GRID LINES DECORATION ── */
+    .grid-lines {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,20,147,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,20,147,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ── MAIN CARD ── */
+    .card {
+      position: relative; z-index: 10;
+      width: min(480px, 94vw);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,105,180,0.2);
+      border-radius: 36px;
+      padding: 56px 48px 48px;
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      box-shadow:
+        0 0 0 1px rgba(255,20,147,0.08),
+        0 30px 80px rgba(0,0,0,0.6),
+        0 0 80px rgba(255,20,147,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      animation: cardBreath 4s ease-in-out infinite;
+    }
+    @keyframes cardBreath {
+      0%,100% { box-shadow: 0 0 0 1px rgba(255,20,147,0.08), 0 30px 80px rgba(0,0,0,0.6), 0 0 80px rgba(255,20,147,0.12), inset 0 1px 0 rgba(255,255,255,0.08); }
+      50%      { box-shadow: 0 0 0 1px rgba(255,20,147,0.15), 0 30px 80px rgba(0,0,0,0.6), 0 0 130px rgba(255,20,147,0.22), inset 0 1px 0 rgba(255,255,255,0.1); }
+    }
+
+    /* Top decorative line */
+    .card-topline {
+      position: absolute; top: 0; left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(90deg, transparent, #ff69b4, #ff1493, #ff69b4, transparent);
+      border-radius: 0 0 4px 4px;
+      animation: toplineGlow 2.5s ease-in-out infinite;
+    }
+    @keyframes toplineGlow {
+      0%,100% { opacity: 0.6; }
+      50%      { opacity: 1; filter: blur(1px) brightness(1.4); }
+    }
+
+    /* ── ICON TOP ── */
+    .icon-cluster {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-bottom: 22px;
+    }
+    .ic-side { font-size: 1.8rem; animation: icSide 3s ease-in-out infinite; opacity: 0.7; }
+    .ic-side:last-child { animation-delay: 0.5s; }
+    .ic-main {
+      font-size: 3.8rem;
+      animation: icMain 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(255,20,147,0.8));
+    }
+    @keyframes icMain { 0%,100% { transform: scale(1) rotate(-5deg); } 50% { transform: scale(1.12) rotate(5deg); } }
+    @keyframes icSide  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+    /* ── TITLES ── */
+    .card-heading {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2rem, 6vw, 2.7rem);
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(135deg, #ffd6e7, #ff85b0, #ff1493, #ff85b0, #ffd6e7);
+      background-size: 250% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      animation: headShim 4s linear infinite;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    @keyframes headShim { 0% { background-position: 0% center; } 100% { background-position: 250% center; } }
+
+    .card-sub {
+      text-align: center;
+      color: rgba(255,182,193,0.6);
+      font-size: 0.85rem;
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+    }
+    .div-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,105,180,0.3), transparent); }
+    .div-text { color: rgba(255,182,193,0.4); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; }
+
+    /* ── INPUT ── */
+    .input-area { margin-bottom: 8px; }
+    .input-label {
+      display: block;
+      color: rgba(255,182,193,0.55);
+      font-size: 0.72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding-left: 4px;
+    }
+    .input-shell {
+      position: relative;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,105,180,0.28);
+      display: flex; align-items: center;
+      padding: 0 6px 0 20px;
+      transition: all 0.35s ease;
+      overflow: hidden;
+    }
+    .input-shell::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,182,193,0.06), transparent);
+      background-size: 200% 100%;
+      animation: shellShim 2.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes shellShim { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+    .input-shell:focus-within {
+      border-color: #ff69b4;
+      background: rgba(255,255,255,0.09);
+      box-shadow: 0 0 0 3px rgba(255,105,180,0.18), 0 0 40px rgba(255,20,147,0.2);
+    }
+    .input-shell.shake { animation: shakeIt 0.45s ease; }
+    @keyframes shakeIt {
+      0%,100% { transform: translateX(0); }
+      20% { transform: translateX(-10px); }
+      40% { transform: translateX(10px); }
+      60% { transform: translateX(-7px); }
+      80% { transform: translateX(7px); }
+    }
+    .input-icon { font-size: 1.1rem; flex-shrink: 0; animation: iconHB 1.6s ease-in-out infinite; }
+    @keyframes iconHB { 0%,100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+    .secret-input {
+      flex: 1; background: none; border: none; outline: none;
+      padding: 14px 16px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.35rem;
+      color: #fff;
+      letter-spacing: 4px;
+      text-align: center;
+      caret-color: #ff69b4;
+    }
+    .secret-input::placeholder {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(255,182,193,0.3);
+      letter-spacing: 0.5px;
+      font-style: italic;
+    }
+
+    /* ── HINT ── */
+    .hint-row {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      margin: 12px 0 28px;
+    }
+    .hint-icon { font-size: 0.9rem; }
+    .hint-text {
+      color: rgba(255,182,193,0.42);
+      font-size: 0.78rem;
+      font-style: italic;
+    }
+
+    /* ── BUTTON ── */
+    .open-btn {
+      width: 100%;
+      padding: 16px;
+      border: none; border-radius: 50px;
+      background: linear-gradient(135deg, #8b0057 0%, #c71585 35%, #ff1493 65%, #ff69b4 100%);
+      background-size: 200% auto;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      position: relative; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(255,20,147,0.45);
+      transition: all 0.35s ease;
+      animation: btnPulse 2.8s ease-in-out infinite;
+    }
+    .open-btn::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.18) 50%, transparent 70%);
+      transform: translateX(-100%) skewX(-15deg);
+      transition: transform 0.6s ease;
+    }
+    .open-btn:hover::after { transform: translateX(150%) skewX(-15deg); }
+    .open-btn:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 14px 48px rgba(255,20,147,0.65); }
+    .open-btn:active { transform: translateY(0); }
+    @keyframes btnPulse {
+      0%,100% { box-shadow: 0 8px 32px rgba(255,20,147,0.45); }
+      50%      { box-shadow: 0 8px 52px rgba(255,20,147,0.75), 0 0 80px rgba(255,105,180,0.3); }
+    }
+    .open-btn.success {
+      background: linear-gradient(135deg, #2e7d32, #4CAF50, #81C784);
+      animation: none;
+      box-shadow: 0 8px 32px rgba(76,175,80,0.5);
+    }
+    .open-btn.shake { animation: shakeIt 0.45s ease; }
+
+    /* ── ERROR ── */
+    .err-row {
+      height: 22px; text-align: center; margin-top: 12px;
+      color: #ff85b0; font-size: 0.8rem;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .err-row.show { opacity: 1; }
+
+    /* ── BOTTOM DOTS ── */
+    .bottom-deco {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 28px;
+    }
+    .bd { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,105,180,0.4); animation: bdPop 1.8s ease-in-out infinite; }
+    .bd:nth-child(2) { animation-delay: 0.15s; }
+    .bd:nth-child(3) { width: 9px; height: 9px; background: rgba(255,20,147,0.7); animation-delay: 0.3s; }
+    .bd:nth-child(4) { animation-delay: 0.45s; }
+    .bd:nth-child(5) { animation-delay: 0.6s; }
+    @keyframes bdPop { 0%,100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.6); opacity: 1; } }
+
+    /* ── CONFETTI ── */
+    .cfp {
+      position: fixed; top: -20px;
+      border-radius: 50%; pointer-events: none; z-index: 9999;
+      animation: cfFall linear forwards;
+    }
+    @keyframes cfFall {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-gradient"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="grid-lines"></div>
+
+  <canvas class="particles" id="pCanvas"></canvas>
+  <div class="floaters" id="floaters"></div>
+
+  <div class="card">
+    <div class="card-topline"></div>
+
+    <!-- Icon cluster -->
+    <div class="icon-cluster">
+      <span class="ic-side">🌸</span>
+      <span class="ic-main">🎂</span>
+      <span class="ic-side">🌸</span>
+    </div>
+
+    <h1 class="card-heading">A Special Surprise<br/>Awaits You 🎁</h1>
+    <p class="card-sub">This is locked with love — only the birthday queen<br/>holds the key to enter ✨</p>
+
+    <div class="divider">
+      <div class="div-line"></div>
+      <span class="div-text">🔐 Enter Your Secret</span>
+      <div class="div-line"></div>
+    </div>
+
+    <div class="input-area">
+      <label class="input-label" for="secretInput">Your Secret Name</label>
+      <div class="input-shell" id="inputShell">
+        <span class="input-icon">💗</span>
+        <input type="password" id="secretInput" class="secret-input"
+          placeholder="Type it here..." autocomplete="off" spellcheck="false" />
+      </div>
+    </div>
+
+    <div class="hint-row">
+      <span class="hint-icon">💭</span>
+      <span class="hint-text">Psst... what does everyone call you? 🌸</span>
+    </div>
+
+    <button class="open-btn" id="openBtn" onclick="tryOpen()">
+      ✨ &nbsp; Open My Gift &nbsp; ✨
+    </button>
+    <div class="err-row" id="errRow">💔 That doesn't seem right, try again...</div>
+
+    <div class="bottom-deco">
+      <div class="bd"></div><div class="bd"></div><div class="bd"></div><div class="bd"></div><div class="bd"></div>
+    </div>
+  </div>
+
+<script>
+  /* ─── PARTICLE CANVAS ─── */
+  const pc = document.getElementById('pCanvas');
+  const cx = pc.getContext('2d');
+  pc.width = window.innerWidth; pc.height = window.innerHeight;
+  window.addEventListener('resize', () => { pc.width = window.innerWidth; pc.height = window.innerHeight; });
+
+  const pts = Array.from({ length: 80 }, () => ({
+    x: Math.random() * pc.width,
+    y: Math.random() * pc.height,
+    r: Math.random() * 2 + 0.4,
+    vx: (Math.random() - 0.5) * 0.25,
+    vy: -(Math.random() * 0.45 + 0.1),
+    a: Math.random() * 0.45 + 0.1,
+    h: 310 + Math.random() * 50
+  }));
+
+  function animPts() {
+    cx.clearRect(0, 0, pc.width, pc.height);
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.a -= 0.0012;
+      if (p.a <= 0 || p.y < -5) {
+        p.x = Math.random() * pc.width;
+        p.y = pc.height + 10;
+        p.a = Math.random() * 0.4 + 0.1;
+        p.vy = -(Math.random() * 0.45 + 0.1);
+      }
+      cx.save();
+      cx.globalAlpha = p.a;
+      cx.shadowBlur = 10; cx.shadowColor = `hsl(${p.h},100%,70%)`;
+      cx.fillStyle = `hsl(${p.h},100%,72%)`;
+      cx.beginPath(); cx.arc(p.x, p.y, p.r, 0, Math.PI * 2); cx.fill();
+      cx.restore();
+    });
+    requestAnimationFrame(animPts);
+  }
+  animPts();
+
+  /* ─── FLOATING EMOJIS ─── */
+  const fl = document.getElementById('floaters');
+  const ems = ['🎂','🎉','🎈','💕','🌸','✨','💖','🎁','🎊','💗','⭐','🌺','🎀','🎀','💫'];
+  function spawnEm() {
+    const e = document.createElement('div');
+    e.className = 'fem';
+    e.textContent = ems[Math.floor(Math.random() * ems.length)];
+    const dur = 9 + Math.random() * 10;
+    e.style.cssText = `left:${Math.random()*100}vw; font-size:${14+Math.random()*18}px;
+      animation-duration:${dur}s; animation-delay:0s;
+      opacity:${0.12+Math.random()*0.22};`;
+    fl.appendChild(e);
+    setTimeout(() => e.remove(), dur * 1000 + 200);
+  }
+  spawnEm(); setInterval(spawnEm, 750);
+
+  /* ─── AUTH ─── */
+  function tryOpen() {
+    const val = document.getElementById('secretInput').value.trim().toLowerCase();
+    const btn = document.getElementById('openBtn');
+    const err = document.getElementById('errRow');
+    const shell = document.getElementById('inputShell');
+
+    if (val === 'janu') {
+      sessionStorage.setItem('pinky_auth', '1');
+      btn.classList.add('success');
+      btn.textContent = '💖  Opening your surprise...';
+      boom();
+      setTimeout(() => window.location.href = 'main.html', 2000);
+    } else {
+      err.classList.add('show');
+      btn.classList.add('shake'); shell.classList.add('shake');
+      setTimeout(() => {
+        btn.classList.remove('shake'); shell.classList.remove('shake'); err.classList.remove('show');
+      }, 900);
+    }
+  }
+
+  document.getElementById('secretInput').addEventListener('keydown', e => { if (e.key === 'Enter') tryOpen(); });
+
+  /* ─── CONFETTI ─── */
+  function boom() {
+    const cols = ['#ff1493','#ff69b4','#ffb6c1','#ffd700','#c71585','#fff0f5','#ff85b0','#ffe4f0'];
+    for (let i = 0; i < 140; i++) {
+      const p = document.createElement('div');
+      const s = 5 + Math.random() * 9;
+      p.className = 'cfp';
+      p.style.cssText = `left:${Math.random()*100}vw;
+        width:${s}px; height:${s}px;
+        background:${cols[Math.floor(Math.random()*cols.length)]};
+        border-radius:${Math.random()>.5?'50%':'3px'};
+        animation-duration:${1.8+Math.random()*1.8}s;
+        animation-delay:${Math.random()*1.2}s;`;
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 5000);
+    }
+  }
+</script>
+</body>
+</html>
